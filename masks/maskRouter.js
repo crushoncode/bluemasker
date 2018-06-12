@@ -2,9 +2,9 @@ const express = require('express')
 const Mask = require('./Mask')
 const router = express.Router()
 
-// all our cats
+
 router.get('/', (req, res) => {  
-    Mask.all()
+    Mask.find()
     .then(masks =>  {
         res.status(200).json(masks)
     }) 
