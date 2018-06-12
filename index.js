@@ -1,19 +1,46 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const Mask = require('./masks/Mask')
 const app = express()
-const maskRouter = require('./masks/maskRouter')
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT
 
 
-const mask = require('./db/masks.json')
+app.use(bodyParser.urlencoded({extended: true}))
 
-app.use(bodyParser.json())
-app.use('/', maskRouter)
-// app.use('/', (req, res) => {
-//     res.status(200).json(mask)
-// })
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html')
+})
+app.post('/masks', (req, res) => {
+    const mask = new Mask(req.body)
+    if (req.body.size == 'kid') {
+        if (req.body.model == 'level1') { 
+            mask.price = 500
+        }
+        else {
+            mask.price = 1000
+        }
+    }
+    else {
+        if (req.body.model == 'level1') { 
+            mask.price = 1000
+        }
+        else {
+            mask.price = 1500
+        }
+    }
 
+    mask.save()
+    .then(() =>  {
+        // res.redirect('/')
+        res.status(201).json(mask)
+    })
+    .catch(err => {
+        res.status(500).json({err: err.message})
+    })
+    
+})
 
 app.listen(PORT, () => {
     console.log(`listening on port ${PORT}`);
 })
+

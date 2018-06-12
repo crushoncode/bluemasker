@@ -6,7 +6,6 @@
         "logo": "bear",
         "price": 500
     },
-    
     {
         "model": "level2",
         "size": "adult",
@@ -15,7 +14,7 @@
         "price": 1500
     },
     {
-        "model": "level2",
+        "model": "level1",
         "size": "adult",
         "color": "white",
         "logo": "heart",

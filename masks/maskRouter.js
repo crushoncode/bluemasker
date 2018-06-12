@@ -14,6 +14,7 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
+    console.log(req.body)
     const mask = new Mask(req.body)
     mask.save()
     .then(() =>  {
