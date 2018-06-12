@@ -1,0 +1,25 @@
+{
+  "name": "bluemasker",
+  "version": "1.0.0",
+  "description": "basic app for displaying bluemasker products ",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "seed" : "node ./db/seed.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "protection",
+    "mask",
+    "mask"
+  ],
+  "author": "serina, maurice, tim, shun",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongoose": "^5.1.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.5"
+  }
+}
