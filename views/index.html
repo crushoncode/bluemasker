@@ -8,7 +8,27 @@
 </head>
 <body>
     <h1>Welcome to BlueMasker</h1>
-
+    <form class="mask-form" action="http://localhost:3000" method="post">
+        <select name="color">
+            <option value="black">Black</option>
+            <option value="white">White</option>
+          </select>
+          <select name="model">
+            <option value="level1">Level 1</option>
+            <option value="level2">Level 2</option>
+          </select>
+          <select name="size">
+            <option value="adult">Adult</option>
+            <option value="kid">Kid</option>
+          </select>
+          <select name="logo">
+            <option value="bear">Bear</option>
+            <option value="heart">Heart</option>
+            <option value="mustache">Mustache</option>
+          </select>
+          <br />
+          <input type="submit">
+    </form>
     <script src="./index.js"></script>
 </body>
 </html>
