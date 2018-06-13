@@ -6,10 +6,20 @@ const PORT = process.env.PORT
 
 
 app.use(bodyParser.urlencoded({extended: true}))
+app.set('view engine', 'ejs')
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html')
+    Mask.find()
+    .then(masks =>  {
+        res.render('index.ejs', {masks: masks})
+        // res.status(200).json(masks)
+    }) 
+    .catch(err => {
+        res.status(500).json({error: err.message})
+    })
+    // res.sendFile(__dirname + '/index.html')
 })
+
 app.post('/masks', (req, res) => {
     const mask = new Mask(req.body)
     if (req.body.size == 'kid') {
