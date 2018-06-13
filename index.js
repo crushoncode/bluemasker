@@ -12,7 +12,7 @@ app.set('view engine', 'ejs')
 app.get('/', (req, res) => {
     Mask.find()
     .then(masks =>  {
-        res.render('index.ejs', {masks: masks})
+        res.render('index', {masks: masks})
         // res.status(200).json(masks)
     }) 
     .catch(err => {
@@ -26,7 +26,7 @@ app.post('/masks', (req, res) => {
     mask.img = req.body.color + '-' + req.body.logo + '.png'
 
     if (req.body.size == 'kid') {
-        if (req.body.model == 'level1') { 
+        if (req.body.model == 'Level 1') { 
             mask.price = 500
         }
         else {
@@ -34,7 +34,7 @@ app.post('/masks', (req, res) => {
         }
     }
     else {
-        if (req.body.model == 'level1') { 
+        if (req.body.model == 'Level 1') { 
             mask.price = 1000
         }
         else {
