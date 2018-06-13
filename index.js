@@ -3,6 +3,7 @@ const bodyParser = require('body-parser')
 const Mask = require('./masks/Mask')
 const app = express()
 const PORT = process.env.PORT
+app.use( express.static( "public" ) )
 
 
 app.use(bodyParser.urlencoded({extended: true}))
@@ -22,6 +23,8 @@ app.get('/', (req, res) => {
 
 app.post('/masks', (req, res) => {
     const mask = new Mask(req.body)
+    mask.img = req.body.color + '-' + req.body.logo + '.png'
+
     if (req.body.size == 'kid') {
         if (req.body.model == 'level1') { 
             mask.price = 500
@@ -41,8 +44,8 @@ app.post('/masks', (req, res) => {
 
     mask.save()
     .then(() =>  {
-        // res.redirect('/')
-        res.status(201).json(mask)
+        res.redirect('/')
+        // res.status(201).json(mask)
     })
     .catch(err => {
         res.status(500).json({err: err.message})

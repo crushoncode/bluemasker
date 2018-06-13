@@ -14,12 +14,12 @@
     Add a mask:
     <form action="/masks" method="POST">
         <select name="model">
-            <option value="level1">Level1</option>
-            <option value="level2">Level2</option>
+            <option value="Level 1">Level 1</option>
+            <option value="Level 2">Level 2</option>
         </select>
         <select name="size">
-            <option value="kid">Kid</option>
-            <option value="audult">Adult</option>
+            <option value="Kid">Kid</option>
+            <option value="Adult">Adult</option>
         </select>
         <select name="color">
             <option value="black">Black</option>
@@ -37,15 +37,15 @@
     <div class="d-flex flex-wrap justify-content-around">
     <% for(var i=0; i<masks.length; i++) {%>
             <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <img class="card-img-top" src=<%= masks[i].img %> alt="Card image cap">
                     <div class="card-body">
-                      <h4 class="card-title">Mask Details:</h4>
+                      <h4 class="card-title"><%= `${masks[i].model} ${masks[i].size} ${masks[i].logo}` %></h4>
                       <h5 class="card-subtitle mb-2 text-muted">Model: <%= masks[i].model %></h5>
                       <h5 class="card-subtitle mb-2 text-muted">Size: <%= masks[i].size %></h5>
                       <h5 class="card-subtitle mb-2 text-muted">Color: <%= masks[i].color %></h5>
                       <h5 class="card-subtitle mb-2 text-muted">Logo: <%= masks[i].logo %></h5>
                       <h5 class="card-subtitle mb-2 text-muted">Price: $<%= (masks[i].price / 100) %></h5>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                      <a href="#" class="btn btn-danger">Delete</a>
                     </div>
             </div>
             <br />

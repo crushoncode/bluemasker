@@ -1,23 +1,26 @@
 [
     {
-        "model": "level1",
-        "size": "kid",
+        "model": "Level 1",
+        "size": "Kid",
         "color": "black",
         "logo": "bear",
+        "img": "black-bear.png",
         "price": 500
     },
     {
-        "model": "level2",
-        "size": "adult",
+        "model": "Level 2",
+        "size": "Adult",
         "color": "white",
         "logo": "mustache",
+        "img": "white-mustache.png",
         "price": 1500
     },
     {
-        "model": "level1",
-        "size": "adult",
+        "model": "Level 1",
+        "size": "Adult",
         "color": "white",
         "logo": "heart",
+        "img": "white-heart.png",
         "price": 1000
     }   
 ]

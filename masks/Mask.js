@@ -6,6 +6,7 @@ const maskSchema = new Schema({
     size: String,
     color: String,
     logo: String,
+    img: String,
     price: Number
 })
 
